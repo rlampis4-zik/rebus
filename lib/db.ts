@@ -1,6 +1,6 @@
 import { neon, type NeonQueryFunction } from '@neondatabase/serverless';
-import { config } from './config';
-import { DatabaseError } from './errors';
+import { config } from './config.ts';
+import { DatabaseError } from './errors.ts';
 
 export type Riga = Record<string, unknown>;
 

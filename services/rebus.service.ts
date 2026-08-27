@@ -1,7 +1,7 @@
-import { RebusRepository } from '../repositories/rebus.repository';
-import { NotFoundError, ValidationError } from '../lib/errors';
-import { config } from '../lib/config';
-import type { RebusPubblicoDTO, RisultatoSync, Scena, SegmentoVignetta } from '../types/rebus';
+import { RebusRepository } from '../repositories/rebus.repository.ts';
+import { NotFoundError, ValidationError } from '../lib/errors.ts';
+import { config } from '../lib/config.ts';
+import type { RebusPubblicoDTO, RisultatoSync, Scena, SegmentoVignetta } from '../types/rebus.ts';
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 

@@ -6,8 +6,8 @@
  * risveglia il compute dopo lo scale-to-zero. È normale e non va confuso con
  * un problema di rete.
  */
-import { Database } from '../lib/db';
-import { RebusRepository } from '../repositories/rebus.repository';
+import { Database } from '../lib/db.ts';
+import { RebusRepository } from '../repositories/rebus.repository.ts';
 
 async function main() {
   const db = Database.get();
