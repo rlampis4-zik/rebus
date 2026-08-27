@@ -5,11 +5,11 @@ Nessun endpoint di scrittura pubblico: lo script admin scrive direttamente sul D
 
 ```
 migrations/001_init.sql      schema
-lib/hash.ts                  normalizzazione + hashing (condiviso col generatore)
-lib/db.ts                    client Neon + helper risposte
-api/v1/sync.ts               GET /v1/sync?since=&limit=
-api/v1/rebus/[id].ts         GET /v1/rebus/:id
-scripts/upsert-esempio.ts    inserimento idempotente lato admin
+lib/hash.js                  normalizzazione + hashing (condiviso col generatore)
+lib/db.js                    client Neon + helper risposte
+api/v1/sync.js               GET /v1/sync?since=&limit=
+api/v1/rebus/[id].js         GET /v1/rebus/:id
+scripts/upsert-esempio.js    inserimento idempotente lato admin
 ```
 
 ## 1. Progetto Neon
@@ -53,7 +53,7 @@ Puoi tirare giù le env di Vercel in locale con `vercel env pull .env.local`.
 openssl rand -hex 32   # -> REBUS_ENC_KEY
 ```
 
-Serve solo allo script admin, **non** va messa fra le env di Vercel: il backend non cifra nulla a runtime. La stessa chiave va compilata dentro l'APK per il "rivela". Vedi l'avvertenza in `lib/hash.ts`: è offuscamento, non sicurezza.
+Serve solo allo script admin, **non** va messa fra le env di Vercel: il backend non cifra nulla a runtime. La stessa chiave va compilata dentro l'APK per il "rivela". Vedi l'avvertenza in `lib/hash.js`: è offuscamento, non sicurezza.
 
 ## 6. Cache
 

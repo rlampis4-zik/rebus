@@ -7,7 +7,7 @@
     "dev": "vercel dev",
     "typecheck": "tsc --noEmit",
     "migrate": "psql \"$DATABASE_URL_UNPOOLED\" -f migrations/001_init.sql",
-    "ping": "tsx scripts/ping.ts"
+    "ping": "tsx scripts/ping.js"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.10.0"

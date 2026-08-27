@@ -1,5 +1,5 @@
-import { AppError, MethodNotAllowedError } from './errors.ts';
-import { config } from './config.ts';
+import { AppError, MethodNotAllowedError } from './errors.js';
+import { config } from './config.js';
 
 type OpzioniRisposta = { status?: number; cache?: boolean; etag?: string };
 

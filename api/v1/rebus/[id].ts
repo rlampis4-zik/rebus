@@ -1,5 +1,5 @@
-import { handler, json, notModified, soloGet } from '../../../lib/http.ts';
-import { RebusService } from '../../../services/rebus.service.ts';
+import { handler, json, notModified, soloGet } from '../../../lib/http.js';
+import { RebusService } from '../../../services/rebus.service.js';
 
 const service = new RebusService();
 

@@ -1,13 +1,13 @@
 /**
  * Verifica che connessione e schema siano a posto.
- *   npx tsx scripts/ping.ts
+ *   npx tsx scripts/ping.js
  *
  * Il primo `select` può impiegare 1-2 secondi: è il cold start di Neon che
  * risveglia il compute dopo lo scale-to-zero. È normale e non va confuso con
  * un problema di rete.
  */
-import { Database } from '../lib/db.ts';
-import { RebusRepository } from '../repositories/rebus.repository.ts';
+import { Database } from '../lib/db.js';
+import { RebusRepository } from '../repositories/rebus.repository.js';
 
 async function main() {
   const db = Database.get();

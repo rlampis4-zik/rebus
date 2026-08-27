@@ -1,4 +1,4 @@
-import { Database, type Riga } from '../lib/db.ts';
+import { Database, type Riga } from '../lib/db.js';
 import type {
   MotivoScarto,
   NuovoRebus,
@@ -7,8 +7,8 @@ import type {
   Scena,
   SegmentoVignetta,
   StatoRebus,
-} from '../types/rebus.ts';
-import { hashGrafemi, hashSoluzione, normalizzaGrafemi } from '../lib/hash.ts';
+} from '../types/rebus.js';
+import { hashGrafemi, hashSoluzione, normalizzaGrafemi } from '../lib/hash.js';
 
 /**
  * Unico punto del backend che conosce i nomi delle colonne.
