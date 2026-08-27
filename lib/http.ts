@@ -37,14 +37,28 @@ export function soloGet(req: Request): void {
 }
 
 /**
+ * Contesto passato da Vercel come secondo argomento agli handler in stile Web.
+ * Per le route dinamiche (es. api/v1/rebus/[id].ts) contiene i parametri del path.
+ */
+export type Contesto<P extends Record<string, string> = Record<string, string>> = {
+  params: P;
+};
+
+/**
  * Wrapper unico degli handler. Traduce le eccezioni in risposte HTTP e
  * garantisce che un errore imprevisto non trapeli mai verso il client:
  * lo stack finisce nei log, l'utente riceve un 500 generico.
+ *
+ * Il risultato va esportato come metodo HTTP nominato (`export const GET = ...`),
+ * non come default: con `export default` Vercel usa la firma Node `(req, res)`
+ * e il Response restituito viene ignorato.
  */
-export function handler(fn: (req: Request) => Promise<Response>) {
-  return async (req: Request): Promise<Response> => {
+export function handler<P extends Record<string, string> = Record<string, string>>(
+  fn: (req: Request, ctx: Contesto<P>) => Promise<Response>,
+) {
+  return async (req: Request, ctx?: Contesto<P>): Promise<Response> => {
     try {
-      return await fn(req);
+      return await fn(req, ctx ?? ({ params: {} as P }));
     } catch (e) {
       if (e instanceof AppError) {
         if (e.status >= 500) console.error(`[${e.codice}]`, e.message, e.dettaglio);
