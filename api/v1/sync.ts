@@ -1,8 +1,6 @@
 import { handler, json, soloGet } from '../../lib/http';
 import { RebusService } from '../../services/rebus.service';
 
-export const config = { runtime: 'edge' };
-
 const service = new RebusService();
 
 /**
